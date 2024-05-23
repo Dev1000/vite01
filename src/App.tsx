@@ -4,9 +4,14 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import axios from 'axios'
 
+interface Post {
+  id: number;
+  title: string;
+}
+
 function App() {
   const [count, setCount] = useState(0)
-  const [posts, setPosts] = useState([])
+  const [posts, setPosts] = useState<Post[]>([])
 
   const getPosts = () => {
     axios.get(`${import.meta.env.VITE_API_URL}/posts/index`)
